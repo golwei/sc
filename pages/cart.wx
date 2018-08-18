@@ -1,0 +1,15 @@
+<template>
+  <view></view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '购物车'
+  },
+  data: {}
+}
+</script>
+
+<style lang="less">
+</style>

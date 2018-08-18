@@ -3,7 +3,8 @@
     "pages/index",
     "pages/list",
     "pages/me",
-    "pages/home/index"
+    "pages/home/index",
+    "pages/cart"
   ],
   "tabBar": {
     "list": [
@@ -16,6 +17,12 @@
       {
         "pagePath": "pages/list",
         "text": "商品列表",
+        "iconPath": "static/imgs/lb.png",
+        "selectedIconPath": "static/imgs/lb1.png"
+      },
+      {
+        "pagePath": "pages/cart",
+        "text": "购物车",
         "iconPath": "static/imgs/lb.png",
         "selectedIconPath": "static/imgs/lb1.png"
       },

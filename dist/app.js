@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _system = require("./static/utils/system.js");
+var _system = require('./static/utils/system.js');
 
 var _system2 = _interopRequireDefault(_system);
 

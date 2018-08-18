@@ -1,23 +1,88 @@
 <template>
-  <ui-row border-top border-bottom space-bottom="20">
-    <ui-col>
-      <view class="swiper-container">
-        <swiper circular autoplay interval="5000" duration="500" bindchange="swiperChange" class="swiper">
-          <block wx:for="{{items4}}" wx:key="unique">
-            <swiper-item>
-              <image src="{{item.src}}" class="img" />
-            </swiper-item>
-          </block>
-        </swiper>
+  <view>
+    <!-- swaper -->
+    <ui-row border-top border-bottom space-bottom="20">
+      <ui-col>
+        <view class="swiper-container">
+          <swiper circular autoplay interval="5000" duration="500" bindchange="swiperChange" class="swiper">
+            <block wx:for="{{items4}}" wx:key="unique">
+              <swiper-item>
+                <image src="{{item.src}}" class="img" />
+              </swiper-item>
+            </block>
+          </swiper>
 
-        <view class="dots">
-          <block wx:for="{{items4}}" wx:key="unique">
-            <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
-          </block>
+          <view class="dots">
+            <block wx:for="{{items4}}" wx:key="unique">
+              <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+            </block>
+          </view>
         </view>
-      </view>
-    </ui-col>
-  </ui-row>
+      </ui-col>
+    </ui-row>
+    <!-- grid -->
+    <view class="nav_content">
+      <ui-divider>-商品分类-</ui-divider>
+      <ui-row height="100">
+        <ui-col vertical-align="middle" align="center">
+          <ui-icon type="liwu" size="24" color="#fff" class="nav_1"></ui-icon>
+          <view>首页</view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+          <ui-icon type="liwu" size="24" color="#fff" class="nav_2"></ui-icon>
+          <view>装修公司</view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+          <ui-icon type="liwu" size="24" color="#fff" class="nav_3"></ui-icon>
+          <view>设计师</view>
+        </ui-col>
+      </ui-row>
+
+      <ui-row height="100">
+        <ui-col vertical-align="middle" align="center">
+          <ui-icon type="liwu" size="24" color="#fff" class="nav_4"></ui-icon>
+          <view>装修案例</view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+          <ui-icon type="liwu" size="24" color="#fff" class="nav_5"></ui-icon>
+          <view>装修楼盘</view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+          <ui-icon type="liwu" size="24" color="#fff" class="nav_6"></ui-icon>
+          <view>装修图库</view>
+        </ui-col>
+      </ui-row>
+
+      <ui-row height="100">
+        <ui-col vertical-align="middle" align="center">
+          <ui-icon type="liwu" size="24" color="#fff" class="nav_7"></ui-icon>
+          <view>装修攻略</view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+          <ui-icon type="liwu" size="24" color="#fff" class="nav_8"></ui-icon>
+          <view>装修报价</view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+          <ui-icon type="liwu" size="24" color="#fff" class="nav_9"></ui-icon>
+          <view>计算器</view>
+        </ui-col>
+      </ui-row>
+
+      <ui-row height="100">
+        <ui-col vertical-align="middle" align="center">
+          <ui-icon type="liwu" size="24" color="#fff" class="nav_10"></ui-icon>
+          <view>APP下载</view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+          <ui-icon type="liwu" size="24" color="#fff" class="nav_11"></ui-icon>
+          <view>商家入驻</view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+
+        </ui-col>
+      </ui-row>
+    </view>
+    <view>
 </template>
 
 <script>
@@ -204,5 +269,154 @@ export default {
 .swiper-container .dots .dot.active {
   width: 24rpx;
   background: #fff;
+}
+
+// circleMenu4.less
+.sample_content {
+  background-size: 100%;
+}
+.mask {
+  transition: all 0.25s ease-in;
+  transform: scale(1.5);
+  &.show {
+    transform: scale(1);
+  }
+}
+.nav_bg {
+  background: linear-gradient(to right, #fd5860, #f64b51);
+  color: #fff;
+  z-index: 800;
+}
+.nav_switch {
+  width: 100%;
+  view {
+    width: 90%;
+    margin: 0 auto;
+    height: 2px;
+    border-radius: 5px;
+    background: #fff;
+    transition: all ease 0.3s 0s;
+    -moz-transition: all ease 0.3s 0s;
+    -webkit-transition: all ease 0.3s 0s;
+    &.middle {
+      margin: 6px auto;
+    }
+    &.rotate1 {
+      transform: translate(0, 0px) rotate(-45deg);
+      -moz-transform: translate(0, 0px) rotate(-45deg);
+      -webkit-transform: translate(0, 0px) rotate(-45deg);
+      -ms-transform: translate(0, 0px) rotate(-45deg);
+    }
+    &.rotate2 {
+      transform: scale(0, 1);
+      -moz-transform: scale(0, 1);
+      -webkit-transform: scale(0, 1);
+      -ms-transform: scale(0, 1);
+      margin: 0;
+    }
+    &.rotate3 {
+      transform: translate(0, -4px) rotate(45deg);
+      -moz-transform: translate(0, -4px) rotate(45deg);
+      -webkit-transform: translate(0, -4px) rotate(45deg);
+      -ms-transform: translate(0, -4px) rotate(45deg);
+    }
+  }
+}
+.nav_content {
+  padding-top: 5px;
+  .ui-row {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .ui-icon {
+    display: block;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 50%;
+  }
+  view {
+    padding-top: 10px;
+  }
+  .nav_1 {
+    background: #ff8e8e;
+    box-shadow: rgba(255, 142, 142, 0.498039) 0px 6px 15px 0;
+  }
+  .nav_1 + view {
+    color: #ff8e8e;
+  }
+  .nav_2 {
+    background-color: #6ee3c3;
+    box-shadow: rgb(171, 232, 216) 0px 6px 15px 0px;
+  }
+  .nav_2 + view {
+    color: #6ee3c3;
+  }
+  .nav_3 {
+    background-color: #fe9bda;
+    box-shadow: rgb(241, 215, 231) 0px 6px 15px 0px;
+  }
+  .nav_3 + view {
+    color: #fe9bda;
+  }
+
+  .nav_4 {
+    background-color: #cda5fd;
+    box-shadow: rgb(231, 212, 253) 0px 6px 15px 0px;
+  }
+  .nav_4 + view {
+    color: #cda5fd;
+  }
+  .nav_5 {
+    background-color: #f88ca3;
+    box-shadow: rgb(251, 217, 224) 0px 6px 15px 0px;
+  }
+  .nav_5 + view {
+    color: #f88ca3;
+  }
+  .nav_6 {
+    background-color: #fe8c74;
+    box-shadow: rgb(251, 211, 202) 0px 6px 15px 0px;
+  }
+  .nav_6 + view {
+    color: #fe8c74;
+  }
+
+  .nav_7 {
+    background-color: #7ce488;
+    box-shadow: rgb(201, 243, 206) 0px 6px 15px 0px;
+  }
+  .nav_7 + view {
+    color: #7ce488;
+  }
+  .nav_8 {
+    background-color: #89d7e3;
+    box-shadow: rgba(137, 215, 227, 0.498039) 0px 6px 15px 0px;
+  }
+  .nav_8 + view {
+    color: #89d7e3;
+  }
+  .nav_9 {
+    background-color: #ffaf70;
+    box-shadow: rgba(255, 175, 112, 0.498039) 0px 6px 15px;
+  }
+  .nav_9 + view {
+    color: #ffaf70;
+  }
+
+  .nav_10 {
+    background-color: #f8a8f9;
+    box-shadow: rgba(248, 168, 249, 0.498039) 0px 6px 15px 0px;
+  }
+  .nav_10 + view {
+    color: #f8a8f9;
+  }
+  .nav_11 {
+    background-color: #ffd43d;
+    box-shadow: rgba(255, 212, 61, 0.498039) 0px 6px 15px 0px;
+  }
+  .nav_11 + view {
+    color: #ffd43d;
+  }
 }
 </style>

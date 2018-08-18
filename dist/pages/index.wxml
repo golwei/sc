@@ -1,21 +1,112 @@
-<view class="ui-row ui-row-border-top ui-row-border-bottom" style="margin-bottom: 20px;">
-  <view class="ui-col" style="">
-    <view class="ui-col-content">
-      <view class="swiper-container">
-        <swiper circular autoplay interval="5000" duration="500" bindchange="swiperChange" class="swiper">
-          <block wx:for="{{items4}}" wx:key="unique">
-            <swiper-item>
-              <image src="{{item.src}}" class="img" />
-            </swiper-item>
-          </block>
-        </swiper>
+<view>
+  <!-- swaper -->
+  <view class="ui-row ui-row-border-top ui-row-border-bottom" style="margin-bottom: 20px;">
+    <view class="ui-col" style="">
+      <view class="ui-col-content">
+        <view class="swiper-container">
+          <swiper circular autoplay interval="5000" duration="500" bindchange="swiperChange" class="swiper">
+            <block wx:for="{{items4}}" wx:key="unique">
+              <swiper-item>
+                <image src="{{item.src}}" class="img" />
+              </swiper-item>
+            </block>
+          </swiper>
 
-        <view class="dots">
-          <block wx:for="{{items4}}" wx:key="unique">
-            <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
-          </block>
+          <view class="dots">
+            <block wx:for="{{items4}}" wx:key="unique">
+              <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+            </block>
+          </view>
         </view>
       </view>
     </view>
+  </view>
+  <!-- grid -->
+  <view class="nav_content">
+    <ui-divider _pid="{{_pid}}">-商品分类-</ui-divider>
+    <view class="ui-row" style="height:100px;">
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="liwu" size="24" color="#fff" class="nav_1 ui-icon icon-liwu" style="color: #fff;font-size: 24px;"></span>
+          <view>首页</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="liwu" size="24" color="#fff" class="nav_2 ui-icon icon-liwu" style="color: #fff;font-size: 24px;"></span>
+          <view>装修公司</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="liwu" size="24" color="#fff" class="nav_3 ui-icon icon-liwu" style="color: #fff;font-size: 24px;"></span>
+          <view>设计师</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="ui-row" style="height:100px;">
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="liwu" size="24" color="#fff" class="nav_4 ui-icon icon-liwu" style="color: #fff;font-size: 24px;"></span>
+          <view>装修案例</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="liwu" size="24" color="#fff" class="nav_5 ui-icon icon-liwu" style="color: #fff;font-size: 24px;"></span>
+          <view>装修楼盘</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="liwu" size="24" color="#fff" class="nav_6 ui-icon icon-liwu" style="color: #fff;font-size: 24px;"></span>
+          <view>装修图库</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="ui-row" style="height:100px;">
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="liwu" size="24" color="#fff" class="nav_7 ui-icon icon-liwu" style="color: #fff;font-size: 24px;"></span>
+          <view>装修攻略</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="liwu" size="24" color="#fff" class="nav_8 ui-icon icon-liwu" style="color: #fff;font-size: 24px;"></span>
+          <view>装修报价</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="liwu" size="24" color="#fff" class="nav_9 ui-icon icon-liwu" style="color: #fff;font-size: 24px;"></span>
+          <view>计算器</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="ui-row" style="height:100px;">
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="liwu" size="24" color="#fff" class="nav_10 ui-icon icon-liwu" style="color: #fff;font-size: 24px;"></span>
+          <view>APP下载</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="liwu" size="24" color="#fff" class="nav_11 ui-icon icon-liwu" style="color: #fff;font-size: 24px;"></span>
+          <view>商家入驻</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+
+        </view>
+      </view>
+    </view>
+  </view>
+  <view>
   </view>
 </view>
