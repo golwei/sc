@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "购物车"
+  "usingComponents": {
+    "ui-nav-bar": "../packages/touchui-wx-components/ui-nav-bar/dist/index",
+    "ui-fixed-view": "../packages/touchui-wx-components/ui-fixed-view/dist/index"
+  },
+  "navigationBarTitleText": "进货车"
 }

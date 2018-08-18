@@ -1,1 +1,44 @@
-<view></view>
+<view>
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'rgba(255,255,255,0)',color:'#fff'} }}" _pid="{{_pid}}">
+    <view class="ui-row" style="height:46px;">
+      <view bindtap="navigateBack" class="ui-col ui-col-align-left align-left valign-middle" style="padding-left: 10px;flex:0 0 50px;">
+        <view class="ui-col-content align-left valign-middle">
+          <span type="arrow-left" size="16" color="#fff" class="ui-icon icon-arrow-left" style="color: #fff;font-size: 16px;"></span>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <view class="title">个人中心</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 50px;">
+        <view class="ui-col-content align-center valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+
+  <view class="content_wrap">
+    <ui-blur height="300" url="{{ url }}" _pid="{{_pid}}">
+      <view class="top_content">
+        <view>
+          <image src="{{ url }}" mode="aspectFill" style="width:60px;height:60px" />
+        </view>
+        <view class="name">
+          TOUCH UI
+          <span type="write" size="16" color="#fff" class="ui-icon icon-write" style="color: #fff;font-size: 16px;"></span>
+        </view>
+        <view class="card">
+          <view>
+            美好生活PASS卡
+          </view>
+        </view>
+      </view>
+    </ui-blur>
+    <view class="content_list">
+      <view wx:for="{{ items }}" class="{{index % 2 == 0 ? 'grey-bg':''}}">
+        {{ item }}
+      </view>
+    </view>
+  </view>
+</view>

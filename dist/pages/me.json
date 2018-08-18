@@ -1,4 +1,8 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "我的"
+  "usingComponents": {
+    "ui-nav-bar": "../packages/touchui-wx-components/ui-nav-bar/dist/index",
+    "ui-blur": "../packages/touchui-wx-components/ui-blur/dist/index"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white"
 }
