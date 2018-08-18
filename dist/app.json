@@ -39,7 +39,8 @@
     "backgroundColor": "#efefef",
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "天盾商城",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   },
   "networkTimeout": {
     "request": 10000

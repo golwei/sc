@@ -1,15 +1,15 @@
 <!--image8.ui-->
 <template>
   <view>
-    <ui-nav-bar slot="nav-bar"  custom-style="{{ {backgroundColor:'rgba(255,255,255,0)',color:'#fff'} }}">
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'rgba(255,255,255,0)',color:'#fff'} }}">
       <ui-row height="46">
-        <ui-col vertical-align="middle" align="left" space-left="10"  width="50" bindtap="navigateBack">
+        <ui-col vertical-align="middle" align="left" space-left="10" width="50" bindtap="navigateBack">
           <ui-icon type="arrow-left" size="16" color="#fff"></ui-icon>
         </ui-col>
         <ui-col vertical-align="middle" align="center">
           <view class="title">个人中心</view>
         </ui-col>
-        <ui-col vertical-align="middle" align="center" width="50" >
+        <ui-col vertical-align="middle" align="center" width="50">
         </ui-col>
       </ui-row>
     </ui-nav-bar>
@@ -18,14 +18,11 @@
       <ui-blur height="300" url="{{ url }}">
         <view class="top_content">
           <view>
-            <image
-            src="{{ url }}"
-            mode='aspectFill'
-            style="width:60px;height:60px"
-          />
+            <image src="{{ url }}" mode='aspectFill' style="width:60px;height:60px" />
           </view>
           <view class="name">
-            TOUCH UI <ui-icon type="write" size="16" color="#fff"></ui-icon>
+            TOUCH UI
+            <ui-icon type="write" size="16" color="#fff"></ui-icon>
           </view>
           <view class="card">
             <view>
@@ -34,15 +31,98 @@
           </view>
         </view>
       </ui-blur>
-      <view class="content_list">
+      <!-- <view class="content_list">
         <view wx:for="{{ items }}" class="{{index % 2 == 0 ? 'grey-bg':''}}">
           {{ item }}
         </view>
-      </view>
+      </view> -->
     </view>
+    <!-- 栅格列表 -->
+    <ui-row-list border-indent>
+      <ui-row height="50">
+        <ui-col width="40" vertical-align="middle" align="center">
+          <ui-icon type="comment" size="20" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="text">
+          飞行模式
+        </ui-col>
+        <ui-col width="25" vertical-align="middle">
+          <ui-icon type="arrow-right"></ui-icon>
+        </ui-col>
+      </ui-row>
+      <ui-row height="50">
+        <ui-col width="40" vertical-align="middle" align="center">
+          <ui-icon type="comment" size="20" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="text">
+          Wi-Fi
+        </ui-col>
+        <ui-col width="25" vertical-align="middle">
+          <ui-icon type="arrow-right"></ui-icon>
+        </ui-col>
+      </ui-row>
+      <ui-row height="50">
+        <ui-col width="40" vertical-align="middle" align="center">
+          <ui-icon type="comment" size="20" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="text">
+          蓝牙
+        </ui-col>
+        <ui-col width="25" vertical-align="middle">
+          <ui-icon type="arrow-right"></ui-icon>
+        </ui-col>
+      </ui-row>
+      <ui-row height="50">
+        <ui-col width="40" vertical-align="middle" align="center">
+          <ui-icon type="comment" size="20" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="text">
+          蜂窝移动网络
+        </ui-col>
+        <ui-col width="25" vertical-align="middle">
+          <ui-icon type="arrow-right"></ui-icon>
+        </ui-col>
+      </ui-row>
+      <ui-row height="50">
+        <ui-col width="40" vertical-align="middle" align="center">
+          <ui-icon type="comment" size="20" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="text">
+          个人热点
+        </ui-col>
+        <ui-col width="25" vertical-align="middle">
+          <ui-icon type="arrow-right"></ui-icon>
+        </ui-col>
+      </ui-row>
+      <ui-row height="50">
+        <ui-col width="40" vertical-align="middle" align="center">
+          <ui-icon type="comment" size="20" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="text">
+          VPN
+        </ui-col>
+        <ui-col width="25" vertical-align="middle">
+          <ui-icon type="arrow-right"></ui-icon>
+        </ui-col>
+      </ui-row>
+      <ui-row height="50">
+        <ui-col width="40" vertical-align="middle" align="center">
+          <ui-icon type="comment" size="20" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="text">
+          运营商
+        </ui-col>
+        <ui-col width="25" vertical-align="middle">
+          <ui-icon type="arrow-right"></ui-icon>
+        </ui-col>
+      </ui-row>
+    </ui-row-list>
+    <!-- <view wx:for='{{grids}}'>
+   <image style="width: 200px; height: 200px; background-color: #eeeeee;" src="http://wcqt.site{{item.Image}}"/>
+  </view> -->
   </view>
+  <!-- grid data -->
 </template>
-
 <script>
 export default {
   config: {
@@ -56,12 +136,15 @@ export default {
       "http://images.uileader.com/20180321/9e5ff8b2-d6a1-4a56-ab63-88bcd00560b0.png",
     items: [],
     alpha: 0,
-    className: ""
+    className: "",
+    //==>1
+    grid: {}
   },
   navigateBack() {
     wx.navigateBack();
   },
   onReady: function() {
+    let that = this;
     let arr = [];
     for (let i = 1; i <= 5; i++) {
       arr.push(`列表项目${i}`);
@@ -69,7 +152,23 @@ export default {
     this.setData({
       items: arr
     });
-    console.log(this.data.items);
+    // console.log(this.data.items);
+    // wx.getStorageInfo({
+    //   success: function(res) {
+    //     console.log('store.key==>',res.keys);
+    //     console.log(res.currentSize);
+    //     console.log(res.limitSize);
+    //   }
+    // });
+    wx.getStorage({
+      key: "grids",
+      success: function(res) {
+        console.log("getstoragedata==>", res);
+        that.setData({
+          grids: res.data
+        });
+      }
+    });
   }
 };
 </script>
@@ -109,4 +208,14 @@ export default {
     }
   }
 }
+// 栅格
+.column-content {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+  background-color: #eee;
+  border-radius: 5px;
+}
+// 栅格end
 </style>
