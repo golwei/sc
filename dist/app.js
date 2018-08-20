@@ -1,14 +1,14 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _system = require("./static/utils/system.js");
+var _system = require('./static/utils/system.js');
 
 var _system2 = _interopRequireDefault(_system);
 
-var _store = require("./static/utils/store.js");
+var _store = require('./static/utils/store.js');
 
 var _store2 = _interopRequireDefault(_store);
 
@@ -18,7 +18,8 @@ exports.default = App({
   globalData: {},
   onLaunch: function onLaunch() {
     _system2.default.attachInfo();
-    _store2.default.loadData();
+    _store2.default.loadData('grids');
+    _store2.default.loadData('products');
   },
   onShow: function onShow() {},
   onHide: function onHide() {}

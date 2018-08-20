@@ -49,8 +49,8 @@
           <span type="comment" size="20" color="#545454" class="ui-icon icon-comment" style="color: #545454;font-size: 20px;"></span>
         </view>
       </view>
-      <view class="text ui-col" style="">
-        <view class="ui-col-content">
+      <view class="text ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
           飞行模式
         </view>
       </view>
@@ -66,8 +66,8 @@
           <span type="comment" size="20" color="#545454" class="ui-icon icon-comment" style="color: #545454;font-size: 20px;"></span>
         </view>
       </view>
-      <view class="text ui-col" style="">
-        <view class="ui-col-content">
+      <view class="text ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
           Wi-Fi
         </view>
       </view>

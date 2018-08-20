@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/spxq",
     "pages/index",
     "pages/list",
     "pages/me",

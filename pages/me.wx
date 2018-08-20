@@ -43,7 +43,7 @@
         <ui-col width="40" vertical-align="middle" align="center">
           <ui-icon type="comment" size="20" color="#545454"></ui-icon>
         </ui-col>
-        <ui-col class="text">
+        <ui-col vertical-align='middle' class="text">
           飞行模式
         </ui-col>
         <ui-col width="25" vertical-align="middle">
@@ -54,7 +54,7 @@
         <ui-col width="40" vertical-align="middle" align="center">
           <ui-icon type="comment" size="20" color="#545454"></ui-icon>
         </ui-col>
-        <ui-col class="text">
+        <ui-col vertical-align='middle' class="text">
           Wi-Fi
         </ui-col>
         <ui-col width="25" vertical-align="middle">

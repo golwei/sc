@@ -2,10 +2,11 @@ export default {
     // get(p) {
     //     wx.request()
     // }
-    loadData() {
+    loadData(d) {
+
         wx.request(
             {
-                url: 'http://wcqt.site/admin/grids.json', //仅为示例，并非真实的接口地址
+                url: 'http://wcqt.site/admin/' + d + '.json', //仅为示例，并非真实的接口地址
                 // url: 'https://api.douban.com/v2/book/1220562', //仅为示例，并非真实的接口地址
                 data: {
                     name: 'golwei',
@@ -18,12 +19,12 @@ export default {
                     // console.log("=request data=>", res)
 
                     wx.setStorage({
-                        key: 'grids',
+                        key: d,
                         data: res.data,
                         success: function () {
+                            console.log(res.data)
                         }
                     })
-                    // console.log(res.data)
                 }
             }
         )

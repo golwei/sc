@@ -3,69 +3,70 @@
 </template>
 
 <script>
-import system from "./static/utils/system";
-import store from "./static/utils/store";
+import system from './static/utils/system'
+import store from './static/utils/store'
 export default {
   config: {
     usingComponents: {},
     pages: [
-      "pages/index",
-      "pages/list",
-      "pages/me",
-      "pages/home/index",
-      "pages/cart"
+      'pages/index',
+      'pages/list',
+      'pages/me',
+      'pages/home/index',
+      'pages/cart',
+      'pages/spxq'
     ],
     tabBar: {
-      list: [
-        {
-          pagePath: "pages/index",
-          text: "首页",
-          iconPath: "static/imgs/sy.png",
-          selectedIconPath: "static/imgs/sy1.png"
+      list: [{
+          pagePath: 'pages/index',
+          text: '首页',
+          iconPath: 'static/imgs/sy.png',
+          selectedIconPath: 'static/imgs/sy1.png'
         },
         {
-          pagePath: "pages/list",
-          text: "商品列表",
-          iconPath: "static/imgs/lb.png",
-          selectedIconPath: "static/imgs/lb1.png"
+          pagePath: 'pages/list',
+          text: '商品列表',
+          iconPath: 'static/imgs/lb.png',
+          selectedIconPath: 'static/imgs/lb1.png'
         },
         {
-          pagePath: "pages/cart",
-          text: "购物车",
-          iconPath: "static/imgs/lb.png",
-          selectedIconPath: "static/imgs/lb1.png"
+          pagePath: 'pages/cart',
+          text: '购物车',
+          iconPath: 'static/imgs/lb.png',
+          selectedIconPath: 'static/imgs/lb1.png'
         },
         {
-          pagePath: "pages/me",
-          text: "个人中心",
-          iconPath: "static/imgs/grzx.png",
-          selectedIconPath: "static/imgs/grzx1.png"
+          pagePath: 'pages/me',
+          text: '个人中心',
+          iconPath: 'static/imgs/grzx.png',
+          selectedIconPath: 'static/imgs/grzx1.png'
         }
       ]
     },
     window: {
-      backgroundTextStyle: "dark",
-      backgroundColor: "#efefef",
-      navigationBarBackgroundColor: "#ffffff",
-      navigationBarTitleText: "天盾商城",
-      navigationBarTextStyle: "black",
-      navigationStyle: "custom"
+      backgroundTextStyle: 'dark',
+      backgroundColor: '#efefef',
+      navigationBarBackgroundColor: '#ffffff',
+      navigationBarTitleText: '天盾商城',
+      navigationBarTextStyle: 'black',
+      navigationStyle: 'custom'
     },
     networkTimeout: {
       request: 10000
     },
     theme: {
-      "theme-color": "#39f"
+      'theme-color': '#39f'
     }
   },
   globalData: {},
   onLaunch() {
-    system.attachInfo();
-    store.loadData();
+    system.attachInfo()
+    store.loadData('grids')
+    store.loadData('products')
   },
   onShow() {},
   onHide() {}
-};
+}
 </script>
 
 <style lang="less">
