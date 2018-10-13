@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/pay",
     "pages/list",
     "pages/index",
     "pages/me",
