@@ -1,0 +1,51 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.iphonex-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.shop_view {
+  padding-bottom: 50px;
+}
+.shop_list {
+  height: 100px;
+  border-bottom: 1px solid #dbdbdb;
+  line-height: 100px;
+  padding-left: 20px;
+}
+.fixed_top {
+  background: #ff774f;
+}
+.fixed_top .ui-col {
+  color: #fff;
+}
+.fixed_bottom {
+  background: #fff;
+  box-shadow: 0 0px 15px 0 #eaeaea;
+}
+.fixed_bottom .form_list {
+  background: #fe6a3c;
+  color: #fff;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 14px;
+}

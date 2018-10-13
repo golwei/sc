@@ -3,7 +3,24 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _store = require("../static/utils/store.js");
+
+var _store2 = _interopRequireDefault(_store);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var app = getApp();
 exports.default = Page({
+  golist: function golist(e) {
+    // console.log("golist==>", e.currentTarget.dataset.id);
+    app.globalData.listIndex = e.currentTarget.dataset.id;
+    console.log("global==>", app.globalData.listIndex);
+    // app.globalData.listIndex
+    wx.switchTab({
+      url: "./list"
+    });
+  },
   handleChange: function handleChange(e) {
     console.log(e);
     wx.showToast({
@@ -13,6 +30,7 @@ exports.default = Page({
   handleAnimationfinish: function handleAnimationfinish(index) {
     console.log("handleAnimationfinish", index);
   },
+
 
   swiperChange: function swiperChange(e) {
     console.log(e);
@@ -24,7 +42,29 @@ exports.default = Page({
     wx.navigateBack();
   },
 
+  onLoad: function onLoad() {
+    var this_ = this;
+    var e = "swipers";
+    wx.request({
+      url: "https://wcqt.site/" + e,
+      success: function success(res) {
+        this_.setData({ swipers: res.data });
+        wx.setStorageSync(e, res.data);
+      }
+    });
+    wx.request({
+      url: "https://wcqt.site/" + "grids",
+      success: function success(res) {
+        this_.setData({ grids: res.data });
+        wx.setStorageSync("grids", res.data);
+      }
+    });
+
+    // store.getData("swipers");
+    // store.getData("grids");
+  },
   data: {
+    swipers: [],
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px",
     items: [{
       src: "http://images.uileader.com/20171103/5906a28c-0f12-4b71-8df2-98791d8716f6.jpg",

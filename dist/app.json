@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/spxq",
-    "pages/index",
     "pages/list",
+    "pages/index",
     "pages/me",
     "pages/home/index",
-    "pages/cart"
+    "pages/cart",
+    "pages/spxq",
+    "pages/goods"
   ],
   "tabBar": {
     "list": [
@@ -40,8 +41,7 @@
     "backgroundColor": "#efefef",
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "天盾商城",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationBarTextStyle": "black"
   },
   "networkTimeout": {
     "request": 10000

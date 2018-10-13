@@ -1,1 +1,55 @@
-<view></view>
+<view>
+  <!-- 自定义导航 -->
+
+
+  <!-- 设置内容距离nav-bar高度占位 -->
+  <!-- <view style="height:{{NAV_HEIGHT}}"></view> -->
+
+  <!-- 消息 -->
+  <view class="fixed_top ui-row" wx:if="{{isShow}}" style="height:40px;">
+    <view bindtap="show" class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 50px;">
+      <view class="ui-col-content align-center valign-middle">
+        <span type="cancel" size="20" color="#fff" class="ui-icon icon-cancel" style="color: #fff;font-size: 20px;"></span>
+      </view>
+    </view>
+    <view class="ui-col valign-middle" style="">
+      <view class="ui-col-content valign-middle">
+        拼货规则为24小时一场，每日21点开始。
+      </view>
+    </view>
+  </view>
+  <!-- cart -->
+  <!-- <view class="shop_view">
+      <view wx:for="{{ arry }}" class="shop_list" wx:for-item="i">{{i}}号商品</view>
+    </view> -->
+  <swiper>
+    <swiper-item>
+      <image src="https://wcqt.site{{product.Image}}" />
+    </swiper-item>
+  </swiper>
+  <view class="goods-info">
+    {{product.Name}}
+  </view>
+
+  <!-- 数字选择器 -->
+  <view class="sample_content">
+    <ui-stepper value="{{num}}" bindsubtraction="subtraction" bindaddition="addition" _pid="{{_pid}}"></ui-stepper>
+  </view>
+  <!-- 底部固定条(提交) -->
+  <ui-fixed-view bottom="0" left="0" right="0" _pid="{{_pid}}">
+    <view class="fixed_bottom ui-row" style="height:50px;">
+      <view class="ui-col ui-col-align-right align-right valign-middle" style="padding-right: 10px;">
+        <view class="ui-col-content align-right valign-middle">
+          <view>合计：¥575.37</view>
+          <view style="color:#FE6A3C;">（满1200元可免邮费）</view>
+        </view>
+      </view>
+      <view class="ui-col valign-middle" style="flex:0 0 120px;">
+        <view class="ui-col-content valign-middle">
+          <view class="form_list" id="{{goods01.ID}}" data-mun="{{num}}" data-commit="{{goods01}}" bindtap="commit">提交订单</view>
+        </view>
+      </view>
+    </view>
+    <view class="iphonex-bottom"></view>
+  </ui-fixed-view>
+</view>

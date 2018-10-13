@@ -1,29 +1,24 @@
 <view>
-  <ui-nav-bar slot="nav-bar" custom-style="{{ {borderBottom:'1px solid rgba(231, 231, 231, 0.6)',backgroundColor:'#fff'} }}" _pid="{{_pid}}">
-    <view class="ui-row" style="height:46px;">
-      <view bindtap="navigateBack" class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
-        <view class="ui-col-content align-center valign-middle">
-          <span type="arrow-left" size="16" color="#333" class="ui-icon icon-arrow-left" style="color: #333;font-size: 16px;"></span>
-        </view>
-      </view>
-      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
-        <view class="ui-col-content align-center valign-middle">
+  <!-- 导航栏 -->
+  <!-- <ui-nav-bar slot="nav-bar" custom-style="{{ {borderBottom:'1px solid rgba(231, 231, 231, 0.6)',backgroundColor:'#fff'} }}">
+      <ui-row height="46">
+        <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
+            <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
           <view>商品分类</view>
-        </view>
-      </view>
-      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
-        <view class="ui-col-content align-center valign-middle">
-        </view>
-      </view>
-    </view>
-  </ui-nav-bar>
-  <view style="margin-top:{{NAV_HEIGHT}}"></view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center" width="60">
+        </ui-col>
+      </ui-row>
+    </ui-nav-bar> -->
+  <!-- <view style="margin-top:{{NAV_HEIGHT}}"></view> -->
   <view class="ui-row" style="">
     <view class="ui-col ui-col-3" style="flex: 0 0 25%;">
       <view class="ui-col-content">
-        <ui-v-tabs height="{{height}}" tab-style="{{tabStyle}}" active-tab-style="{{activeTabStyle}}" class="tab-item" index="{{ current }}" data-key="current" bindchange="handleChange" _pid="{{_pid}}">
-          <ui-v-tab wx:for="{{ tabItems }}" _pid="{{_pid}}">
-            {{ item.name }}
+        <ui-v-tabs height="{{height}}" tab-style="{{tabStyle}}" active-tab-style="{{activeTabStyle}}" class="tab-item" index="{{ currentIndex }}" data-key="current" bindchange="handleChange" _pid="{{_pid}}">
+          <ui-v-tab wx:for="{{ category }}" wx:key="ID" _pid="{{_pid}}">
+            {{ item.Name }}
           </ui-v-tab>
         </ui-v-tabs>
       </view>
@@ -32,10 +27,16 @@
       <view class="ui-col-content">
         <scroll-view scroll-y style="height: {{ height+'px' }};">
           <view class="goods-box">
-            <view class="goods-list" wx:for="{{tabContentData.subCategoryList}}" wx:for-index="idx">
-              <image class="imgbox" src="{{item.imageUrl}}" />
-              <view class="small-title">{{item.categoryName}}</view>
+            <!-- === 3=== -->
+            <!-- =========== -->
+            <view class="goods-list" wx:for="{{currentProducts}}" wx:key="ID">
+              <navigator url="/pages/spxq?id={{item.ID}}">
+                <image class="imgbox" src="https://wcqt.site{{item.Image.Url}}" />
+                <view class="small-title">{{item.Name}}</view>
+              </navigator>
             </view>
+
+            <!-- =========== -->
           </view>
         </scroll-view>
 

@@ -1,9 +1,10 @@
 <template>
   <view>
-    <ui-nav-bar slot="nav-bar" custom-style="{{ {borderBottom:'1px solid rgba(231, 231, 231, 0.6)',backgroundColor:'#fff'} }}">
+    <!-- 导航栏 -->
+  <!-- <ui-nav-bar slot="nav-bar" custom-style="{{ {borderBottom:'1px solid rgba(231, 231, 231, 0.6)',backgroundColor:'#fff'} }}">
       <ui-row height="46">
         <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
-          <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
+            <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
         </ui-col>
         <ui-col vertical-align="middle" align="center">
           <view>商品分类</view>
@@ -11,38 +12,191 @@
         <ui-col vertical-align="middle" align="center" width="60">
         </ui-col>
       </ui-row>
-    </ui-nav-bar>
-    <view style="margin-top:{{NAV_HEIGHT}}"></view>
+    </ui-nav-bar> -->
+    <!-- <view style="margin-top:{{NAV_HEIGHT}}"></view> -->
     <ui-row>
       <ui-col span="3">
-        <ui-v-tabs height="{{height}}" tab-style="{{tabStyle}}" active-tab-style="{{activeTabStyle}}" class="tab-item" index="{{ current }}" data-key="current" bindchange="handleChange">
-          <ui-v-tab wx:for="{{ tabItems }}">
-            {{ item.name }}
-          </ui-v-tab>
-        </ui-v-tabs>
+        <ui-v-tabs 
+        height="{{height}}"
+        tab-style="{{tabStyle}}"
+        active-tab-style="{{activeTabStyle}}"
+        class="tab-item"
+        index="{{ currentIndex }}"
+        data-key = "current"
+        bindchange="handleChange">
+        <ui-v-tab wx:for="{{ category }}" wx:key='ID'>
+          {{ item.Name }}
+        </ui-v-tab>
+      </ui-v-tabs>
       </ui-col>
       <ui-col>
         <scroll-view scroll-y style="{{ {height:height+'px'} }}">
           <view class="goods-box">
-            <view class="goods-list" wx:for="{{tabContentData.subCategoryList}}" wx:for-index="idx">
-              <image class="imgbox" src="{{item.imageUrl}}"/>
-              <view class="small-title">{{item.categoryName}}</view>
-            </view>
+        <!-- === 3=== -->
+          <!-- =========== -->
+          <view class="goods-list" wx:for="{{currentProducts}}" wx:key='ID'>
+           <navigator url='/pages/spxq?id={{item.ID}}'>
+                <image class="imgbox" src="https://wcqt.site{{item.Image.Url}}"/>
+                <view class="small-title">{{item.Name}}</view>
+           </navigator>
+         </view>
+
+          <!-- =========== -->
           </view>
         </scroll-view>
 
       </ui-col>
     </ui-row>
-  </view>
-</template>
+    </view>
+  </template>
 
 <script>
+let app = getApp();
 export default {
   config: {
     navigationBarTitleText: "商品分类",
     disableScroll: true
   },
+  onLoad: function(e) {
+    this.setData({
+      currentIndex: app.globalData.listIndex
+    });
+    console.log("this.data==>", this.data.currentIndex);
+  },
   data: {
+    currentIndex: 0,
+    // ======================
+    category: [
+      {
+        ID: 1,
+        CreatedAt: "2018-03-24T09:43:58.653880676Z",
+        UpdatedAt: "2018-04-11T08:03:45.071631113Z",
+        DeletedAt: null,
+        Name: "监控"
+      },
+      {
+        ID: 2,
+        CreatedAt: "2018-03-24T09:44:03.283369139Z",
+        UpdatedAt: "2018-09-30T08:48:13.164359153Z",
+        DeletedAt: null,
+        Name: "智能锁"
+      },
+      {
+        ID: 3,
+        CreatedAt: "2018-05-31T07:41:40.80627705Z",
+        UpdatedAt: "2018-09-30T08:49:41.172357587Z",
+        DeletedAt: null,
+        Name: "智慧物联"
+      },
+      {
+        ID: 4,
+        CreatedAt: "2018-09-22T06:24:21.00411001Z",
+        UpdatedAt: "2018-09-22T06:24:21.00411001Z",
+        DeletedAt: null,
+        Name: "智能家居"
+      }
+    ],
+    products: {
+      "1": [
+        {
+          ID: 1,
+          CreatedAt: "2018-03-24T09:45:16.714176272Z",
+          UpdatedAt: "2018-03-24T10:03:51.574660155Z",
+          DeletedAt: null,
+          Name: "海康威视摄像头1",
+          Pric: 16.66,
+          Description: "",
+          Image: {
+            FileName: "u=4099636654,405393272\u0026fm=27\u0026gp=0.jpg",
+            Url:
+              "/system/products/1/image/u-4099636654-405393272andfm-27andgp-0.20180324105118563595890.jpg"
+          },
+          Category: {
+            ID: 0,
+            CreatedAt: "0001-01-01T00:00:00Z",
+            UpdatedAt: "0001-01-01T00:00:00Z",
+            DeletedAt: null,
+            Name: ""
+          },
+          CategoryID: 1,
+          ColorVariations: null
+        },
+        {
+          ID: 2,
+          CreatedAt: "2018-04-11T08:03:45.072045889Z",
+          UpdatedAt: "2018-04-11T08:03:45.072045889Z",
+          DeletedAt: null,
+          Name: "海康摄像头2",
+          Pric: 18.88,
+          Description: "",
+          Image: {
+            FileName: "u=2617125759,3490822508\u0026fm=27\u0026gp=0.jpg",
+            Url:
+              "/system/products/2/image/u-2617125759-3490822508andfm-27andgp-0.20180411084518092413001.jpg"
+          },
+          Category: {
+            ID: 0,
+            CreatedAt: "0001-01-01T00:00:00Z",
+            UpdatedAt: "0001-01-01T00:00:00Z",
+            DeletedAt: null,
+            Name: ""
+          },
+          CategoryID: 1,
+          ColorVariations: null
+        }
+      ],
+      "2": [
+        {
+          ID: 3,
+          CreatedAt: "2018-09-30T08:48:13.165991971Z",
+          UpdatedAt: "2018-09-30T08:48:13.165991971Z",
+          DeletedAt: null,
+          Name: "小米智能锁",
+          Pric: 88.77,
+          Description: "",
+          Image: {
+            FileName: "u=4093029890,1922949438\u0026fm=27\u0026gp=0.jpg",
+            Url:
+              "/system/products/3/image/u-4093029890-1922949438andfm-27andgp-0.20180930081318184769745.jpg"
+          },
+          Category: {
+            ID: 0,
+            CreatedAt: "0001-01-01T00:00:00Z",
+            UpdatedAt: "0001-01-01T00:00:00Z",
+            DeletedAt: null,
+            Name: ""
+          },
+          CategoryID: 2,
+          ColorVariations: null
+        }
+      ],
+      "3": [
+        {
+          ID: 4,
+          CreatedAt: "2018-09-30T08:49:41.172728541Z",
+          UpdatedAt: "2018-09-30T08:49:41.172728541Z",
+          DeletedAt: null,
+          Name: "树莓派4",
+          Pric: 12.14,
+          Description: "",
+          Image: {
+            FileName: "u=3225774261,595345895\u0026fm=26\u0026gp=0.jpg",
+            Url:
+              "/system/products/4/image/u-3225774261-595345895andfm-26andgp-0.20180930084118173074838.jpg"
+          },
+          Category: {
+            ID: 0,
+            CreatedAt: "0001-01-01T00:00:00Z",
+            UpdatedAt: "0001-01-01T00:00:00Z",
+            DeletedAt: null,
+            Name: ""
+          },
+          CategoryID: 3,
+          ColorVariations: null
+        }
+      ]
+    },
+    // ======================
     nav_height: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT,
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px",
     current: 0,
@@ -355,20 +509,31 @@ export default {
     wx.navigateBack();
   },
   handleChange(e) {
-    console.log(e);
     let index = e.detail.index;
-    this.setData({
-      current: index,
-      tabContentData: this.data.tabContents[index]
-    });
+    var cid = this.data.category[index].ID;
+    // var index = e.detail.index;
+    // console.log("id is ==>", this.data.category[index].ID);
+    // console.log(e.detail.index);
+    if (this.data.products[cid]) {
+      this.setData({
+        current: index,
+        currentProducts: this.data.products[cid]
+      });
+    } else {
+      this.setData({
+        current: index,
+        currentProducts: []
+      });
+    }
   },
   onReady: function() {
     this.setData({
-      tabContentData: this.data.tabContents[0]
+      currentProducts: this.data.products[1]
     });
   }
 };
 </script>
+
 
 <style lang="less">
 .container {

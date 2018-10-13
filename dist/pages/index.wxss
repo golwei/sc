@@ -19,6 +19,20 @@
 /* 水平垂直居中 */
 /* 超出部分出省略号 */
 /* 多行文本超出部分省略号 */
+.grids-img {
+  display: flex;
+  justify-content: center;
+}
+.grids {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.grids .item {
+  text-align: center;
+  width: 25%;
+}
 .column-content {
   text-align: center;
   height: 40px;

@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "商品详情"
+  "usingComponents": {
+    "ui-stepper": "../packages/touchui-wx-components/ui-stepper/dist/index",
+    "ui-fixed-view": "../packages/touchui-wx-components/ui-fixed-view/dist/index"
+  },
+  "navigationBarTitleText": "进货车"
 }

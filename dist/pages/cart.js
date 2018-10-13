@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Page({
   data: {
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px",
-    arry: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    arry: [],
     isShow: true
   },
   show: function show() {

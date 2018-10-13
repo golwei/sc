@@ -1,6 +1,4 @@
 {
-  "usingComponents": {
-    "ui-divider": "../packages/touchui-wx-components/ui-divider/dist/index"
-  },
+  "usingComponents": {},
   "navigationBarTitleText": "首页"
 }

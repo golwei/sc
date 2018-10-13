@@ -1,15 +1,167 @@
+<!--fixedView2.ui-->
 <template>
-  <view></view>
+<view>
+    <!-- 自定义导航 -->
+
+
+    <!-- 设置内容距离nav-bar高度占位 -->
+    <!-- <view style="height:{{NAV_HEIGHT}}"></view> -->
+
+      <!-- 消息 -->
+      <ui-row height="40" class="fixed_top"  wx:if="{{isShow}}">
+        <ui-col align="center" vertical-align="middle" width="50" bindtap="show">
+          <ui-icon type="cancel" size="20" color="#fff"></ui-icon>
+        </ui-col>
+        <ui-col vertical-align="middle">
+          拼货规则为24小时一场，每日21点开始。
+        </ui-col>
+      </ui-row>
+    <!-- cart -->
+    <!-- <view class="shop_view">
+      <view wx:for="{{ arry }}" class="shop_list" wx:for-item="i">{{i}}号商品</view>
+    </view> -->
+ <swiper>
+    <swiper-item>
+      <image src='https://wcqt.site{{product.Image}}'/>
+    </swiper-item>
+  </swiper>
+  <view class='goods-info'>
+  {{product.Name}}
+  </view>
+
+  <!-- 数字选择器 -->
+  <view class="sample_content">
+    <ui-stepper value="{{num}}" bindsubtraction="subtraction" bindaddition="addition"></ui-stepper>
+</view>
+    <!-- 底部固定条(提交) -->
+    <ui-fixed-view bottom="0" left="0" right="0">
+      <ui-row height="50" class="fixed_bottom" >
+        <ui-col align="right" vertical-align="middle" space-right="10">
+          <view>合计：¥575.37</view>
+          <view style="color:#FE6A3C;">（满1200元可免邮费）</view>
+        </ui-col>
+        <ui-col vertical-align="middle" width="120">
+          <view class="form_list" id='{{goods01.ID}}' data-mun='{{num}}' data-commit='{{goods01}}' bindtap='commit'>提交订单</view>
+        </ui-col>
+      </ui-row>
+      <view class="iphonex-bottom"></view>
+    </ui-fixed-view>
+  </view>
 </template>
 
 <script>
+// fixedView2.js
 export default {
-  config: {
-    navigationBarTitleText: '商品详情'
+  subtraction(e) {
+    console.log(e);
+    let val = e.detail.toString();
+    console.log(val);
+    wx.showToast({ title: val, icon: "none" });
   },
-  data: {}
-}
+  addition(e) {
+    console.log(e);
+    let val = e.detail.toString();
+    console.log(val);
+    this.setData({ num: e.detail });
+    wx.showToast({ title: val, icon: "none" });
+    console.log(this.data.num);
+  },
+  config: {
+    navigationBarTitleText: "进货车"
+  },
+  data: {
+    num: 0,
+    goods01: {
+      Category: "监控",
+      ColorVariations: [
+        {
+          Color: "红",
+          ID: 1,
+          Name: "",
+          SizeVariations: [
+            {
+              ID: 1,
+              Name: "",
+              Num: 0,
+              Size: "M"
+            },
+            {
+              ID: 2,
+              Name: "",
+              Num: 0,
+              Size: "S"
+            }
+          ]
+        }
+      ],
+      Description: "高清/夜视黑光摄像机",
+      ID: 1,
+      Image:
+        "/system/products/1/image/u-4099636654-405393272andfm-27andgp-0.20180324105118563595890.jpg",
+      Name: "海康威视摄像头1",
+      Pric: 16.66
+    },
+    NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px",
+    arry: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    isShow: false
+  },
+  onLoad(e) {
+    let this_ = this;
+    wx.request({
+      url: "https://wcqt.site/admin/products/" + e.id + ".json",
+      success: function(res) {
+        this_.setData({ product: res.data });
+        console.log(res);
+      }
+    });
+  },
+  commit(e) {
+    console.log(e);
+    wx.switchTab({
+      url: "index"
+    });
+  },
+  show() {
+    this.setData({
+      isShow: false
+    });
+  },
+  navigateBack() {
+    wx.navigateBack();
+  }
+};
 </script>
 
 <style lang="less">
+.iphonex-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+// fixedView2.less
+.shop_view {
+  padding-bottom: 50px;
+}
+.shop_list {
+  height: 100px;
+  border-bottom: 1px solid #dbdbdb;
+  line-height: 100px;
+  padding-left: 20px;
+}
+.fixed_top {
+  background: #ff774f;
+  .ui-col {
+    color: #fff;
+  }
+}
+.fixed_bottom {
+  background: #fff;
+  box-shadow: 0 0px 15px 0 #eaeaea;
+  .form_list {
+    background: #fe6a3c;
+    color: #fff;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 14px;
+  }
+}
 </style>

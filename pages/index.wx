@@ -1,13 +1,14 @@
 <template>
   <view>
+
     <!-- swaper -->
     <ui-row border-top border-bottom space-bottom="20">
       <ui-col>
         <view class="swiper-container">
-          <swiper circular autoplay interval="5000" duration="500" bindchange="swiperChange" class="swiper">
-            <block wx:for="{{items4}}" wx:key="unique">
+          <swiper circular autoplay interval="5000" duration="500" class="swiper">
+            <block wx:for="{{swipers}}" wx:key="item.ID">
               <swiper-item>
-                <image src="{{item.src}}" class="img" />
+                <image src="https://wcqt.site{{item.Image.Url}}" mode="aspectFit" class="img" />
               </swiper-item>
             </block>
           </swiper>
@@ -22,97 +23,50 @@
     </ui-row>
     <!-- grid -->
     <view class="nav_content">
-      <ui-divider>-商品分类-</ui-divider>
-      <ui-row height="100">
-        <ui-col vertical-align="middle" align="center">
-          <ui-icon type="liwu" size="24" color="#fff" class="nav_1"></ui-icon>
-          <view>首页</view>
-        </ui-col>
-        <ui-col vertical-align="middle" align="center">
-          <ui-icon type="liwu" size="24" color="#fff" class="nav_2"></ui-icon>
-          <view>装修公司</view>
-        </ui-col>
-        <ui-col vertical-align="middle" align="center">
-          <ui-icon type="liwu" size="24" color="#fff" class="nav_3"></ui-icon>
-          <view>设计师</view>
-        </ui-col>
-      </ui-row>
+      <!-- <ui-divider>grids</ui-divider> -->
+      <!-- <view class="title">商品分类</view> -->
 
-      <ui-row height="100">
-        <ui-col vertical-align="middle" align="center">
-          <ui-icon type="liwu" size="24" color="#fff" class="nav_4"></ui-icon>
-          <view>装修案例</view>
-        </ui-col>
-        <ui-col vertical-align="middle" align="center">
-          <ui-icon type="liwu" size="24" color="#fff" class="nav_5"></ui-icon>
-          <view>装修楼盘</view>
-        </ui-col>
-        <ui-col vertical-align="middle" align="center">
-          <ui-icon type="liwu" size="24" color="#fff" class="nav_6"></ui-icon>
-          <view>装修图库</view>
-        </ui-col>
-      </ui-row>
+      <view class='grids'>
+       <view   class='item' wx:for="{{grids}}" wx:key='ID' bindtap='golist' data-id='{{item.ID}}'>
+          <view class='grids-img'>
+           <ui-icon type="liwu" size="24" color="#fff" class="nav_1"></ui-icon>
+          </view>
+          <view>{{item.Name}}</view>
+       </view>
 
-      <ui-row height="100">
-        <ui-col vertical-align="middle" align="center">
-          <ui-icon type="liwu" size="24" color="#fff" class="nav_7"></ui-icon>
-          <view>装修攻略</view>
-        </ui-col>
-        <ui-col vertical-align="middle" align="center">
-          <ui-icon type="liwu" size="24" color="#fff" class="nav_8"></ui-icon>
-          <view>装修报价</view>
-        </ui-col>
-        <ui-col vertical-align="middle" align="center">
-          <ui-icon type="liwu" size="24" color="#fff" class="nav_9"></ui-icon>
-          <view>计算器</view>
-        </ui-col>
-      </ui-row>
-
-      <ui-row height="100">
-        <ui-col vertical-align="middle" align="center">
-          <ui-icon type="liwu" size="24" color="#fff" class="nav_10"></ui-icon>
-          <view>APP下载</view>
-        </ui-col>
-        <ui-col vertical-align="middle" align="center">
-          <ui-icon type="liwu" size="24" color="#fff" class="nav_11"></ui-icon>
-          <view>商家入驻</view>
-        </ui-col>
-        <ui-col vertical-align="middle" align="center">
-
-        </ui-col>
-      </ui-row>
+      </view>
     </view>
     <view>
 <!-- 2 -->
 <view class="box">
     <ui-row space-top=20 style="box-shadow: 0 0 10px #d0d0d0;" height="200">
         <ui-col span=5>
-            <image src="http://images.uileader.com/20180313/89c57f8a-f215-4611-bf66-3a160a2d3428.jpg"/>
+            <image src="https://wcqt.site/system/products/1/image/u-4099636654-405393272andfm-27andgp-0.20180324105118563595890.jpg"/>
         </ui-col>
         <ui-col span=7>
             <ui-row border-bottom>
                 <ui-col>
                     <view class="right1">
-                        <view class="title">进口优选</view>
-                        <view class="p">15天售后无忧</view>
-                        <view class="p">99元任选三件</view>
+                        <view class="title">高清摄像头</view>
+                        <view class="p">1年质保</view>
+                        <view class="p">专业安装</view>
                     </view>
                 </ui-col>
                 <ui-col align="center" vertical-align="middle">
-                    <image src="http://images.uileader.com/20180313/5e11e029-b931-45df-9cd9-ec103ebce1a8.jpg" style="width:80px;height:80px;"/>
+                    <image src="https://wcqt.site/system/products/2/image/u-2617125759-3490822508andfm-27andgp-0.20180411084518092413001.jpg" style="width:80px;height:80px;"/>
                 </ui-col>
             </ui-row>
 
             <ui-row>
                 <ui-col border-right class="right2" vertical-align="middle" align="center">
-                    <view class="title">天猫生鲜</view>
+                    <view class="title">智能家居</view>
                     <view class="p">秋补进行时</view>
-                    <image src="http://images.uileader.com/20180313/64b7a43f-87b2-48b7-8646-a183bcec8a7d.jpg" style="width:45px;height:45px;"/>              
+                    <image src="https://wcqt.site/system/products/3/image/u-4093029890-1922949438andfm-27andgp-0.20180930081318184769745.jpg" style="width:45px;height:45px;"/>              
                 </ui-col>
                 <ui-col class="right2" vertical-align="middle" align="center">
-                    <view class="title">魅力惠</view>
+                    <view class="title">智能门锁</view>
                     <view class="p">折后减500</view>
-                    <image src="http://images.uileader.com/20180313/fb7bead5-83e9-4785-b720-33f4aa84e002.jpg" style="width:45px;height:45px;"/>              
+                    <image src="https://wcqt.site/system/products/3/image/u-4093029890-1922949438andfm-27andgp-0.20180930081318184769745.jpg" style="width:45px;height:45px;"/>              
                 </ui-col>
             </ui-row>
         </ui-col>
@@ -120,10 +74,10 @@
 </view>
 
 
-<view class="box">
+<!-- <view class="box">
     <ui-row space-top=20 style="box-shadow: 0 0 10px #d0d0d0;" height="200">
         <ui-col span=5 vertical-align="middle" align="center">
-            <image src="http://images.uileader.com/20180313/6fa61fe1-1819-4038-9743-7ecc6a0eaea5.jpg"/>              
+            <image src="https://wcqt.site/system/products/3/image/u-4093029890-1922949438andfm-27andgp-0.20180930081318184769745.jpg"/>              
         </ui-col>
         <ui-col span=7>
             <ui-row border-bottom>
@@ -152,14 +106,25 @@
             </ui-row>
         </ui-col>
     </ui-row>
-</view>
+</view> -->
 </view>
 <!-- 2 end-->
 
 </template>
 
 <script>
+let app = getApp();
+import store from "../static/utils/store";
 export default {
+  golist(e) {
+    // console.log("golist==>", e.currentTarget.dataset.id);
+    app.globalData.listIndex = e.currentTarget.dataset.id;
+    console.log("global==>", app.globalData.listIndex);
+    // app.globalData.listIndex
+    wx.switchTab({
+      url: "./list"
+    });
+  },
   config: {
     navigationBarTitleText: "首页"
   },
@@ -172,6 +137,7 @@ export default {
   handleAnimationfinish(index) {
     console.log("handleAnimationfinish", index);
   },
+
   swiperChange: function(e) {
     console.log(e);
     this.setData({
@@ -181,7 +147,29 @@ export default {
   navigateBack() {
     wx.navigateBack();
   },
+  onLoad: function() {
+    let this_ = this;
+    var e = "swipers";
+    wx.request({
+      url: "https://wcqt.site/" + e,
+      success: function(res) {
+        this_.setData({ swipers: res.data });
+        wx.setStorageSync(e, res.data);
+      }
+    });
+    wx.request({
+      url: "https://wcqt.site/" + "grids",
+      success: function(res) {
+        this_.setData({ grids: res.data });
+        wx.setStorageSync("grids", res.data);
+      }
+    });
+
+    // store.getData("swipers");
+    // store.getData("grids");
+  },
   data: {
+    swipers: [],
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px",
     items: [
       {
@@ -304,6 +292,37 @@ export default {
 </script>
 
 <style lang="less">
+.grids-img {
+  display: flex;
+  justify-content: center;
+  // display: block;
+  // margin-left: auto;
+  // margin-right: auto;
+  // display: table-cell;
+  // margin: 0 auto;
+  // align-content: center;
+  // align-items: center;
+  // float: right;
+}
+.grids {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  // align-items: center;
+  flex-wrap: wrap;
+}
+.grids .item {
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  text-align: center;
+  // align-content: center;
+  // align-items: center;
+  // align-content: center;
+  // flex: 0.25;
+  width: 25%;
+}
 .column-content {
   text-align: center;
   height: 40px;
